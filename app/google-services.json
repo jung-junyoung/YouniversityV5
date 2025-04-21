@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "736857552316",
+    "project_id": "youniversityv5",
+    "storage_bucket": "youniversityv5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736857552316:android:2ea1243e3f3c0c7115e7b9",
+        "android_client_info": {
+          "package_name": "com.youniversityV5.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxbuHHHPZi2BeROV3SkFEnYzA-bcbD6Vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
