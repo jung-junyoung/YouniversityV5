@@ -1,7 +1,21 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/pretendard.css');
 
+html, body, #root, main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+}
+
+/* Main CSS */
+main {
+  font-family: 'Pretendard', sans-serif;
+  background-color: #FCFCFC;
 }
 
 /* Footer CSS*/
@@ -94,6 +108,23 @@ footer {
   display: block;
 }
 
+/* Report Page */
+.Report-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%
+}
+
+.Report-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 4rem;
+  box-sizing: border-box;
+  width: 100%
+}
+
 /* Side Nav */
 .SideNav {
   width: 230px;
@@ -148,10 +179,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; 
-  max-width: 800px; 
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem;
   gap: 16px;
 }
 
@@ -178,23 +208,106 @@ footer {
   background-color: #4b63d9;
 }
 
-/* Report Page */
-.Report-page {
-  display: flex;
-  min-height: 100vh; 
+/* Advanced Search */
+.AdvancedSearch {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
 }
 
-.Report-content {
-  flex: 1;
+.FilterButton {
+  background-color: #5C76F7;
+  color: white;
+  border : none;
+  padding: 0.8rem 1.5rem;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+}
+
+.FilterButton:hover {
+  background-color: #4b63d9;
+}
+
+.filters {
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 3rem 4rem;
-  box-sizing: border-box;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
-/* Main CSS */
-main {
-  font-family: 'Pretendard', sans-serif;
-  background-color: #FCFCFC;
+.filter-group {
+  width: 100%;
+}
+
+.filter-group h4 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-option {
+  background-color: #f8f9fa;
+  border: 1px solid #dcdcdc;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-option.selected {
+  background-color: #5C76F7;
+  color: white;
+}
+
+.selected-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: #5C76F7;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-tag {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.action-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.reset-button {
+  background-color: white;
+  color: #5C76F7;
+  border: 1px solid #5C76F7;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+}
+
+.apply-button {
+  background-color: #5C76F7;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
 }

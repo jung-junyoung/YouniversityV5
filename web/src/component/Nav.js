@@ -10,10 +10,8 @@ function Nav() {
         const currentScrollY = window.scrollY;
       
         if (currentScrollY > lastScrollY && currentScrollY > 50) {
-          // 아래로 스크롤 중 → 숨기기
           setIsHidden(true);
         } else if (currentScrollY < lastScrollY) {
-          // 위로 스크롤 중 → 다시 보이게
           setIsHidden(false);
         }
       

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, onToggleAdvanced }) {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (e) => {
@@ -31,6 +31,9 @@ function SearchBar({ onSearch }) {
       />
       <button onClick={handleSearch} className="SearchButton">
         🔍
+      </button>
+      <button onClick={onToggleAdvanced} className="FilterButton">
+        Filters
       </button>
     </div>
   );
