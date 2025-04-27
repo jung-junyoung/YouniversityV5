@@ -6,6 +6,9 @@ function Nav() {
     const [isHidden, setIsHidden] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
 
+    // 로그인 상태 (임시)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
       
@@ -24,6 +27,10 @@ function Nav() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+    };
+
     return (
         <nav className={`Nav-bar ${isHidden ? 'Nav-hidden' : ''}`}>
             <div className="Nav-section left">
@@ -33,6 +40,18 @@ function Nav() {
 
             <div className="Nav-section center">
                 <img src={logo} alt="Logo" className="Nav-logo" />
+            </div>
+
+            <div className="Nav-section right">
+                {isLoggedIn ? (
+                    <button className="Nav-button right-menu" onClick={handleLogout}>
+                        SIGN OUT
+                    </button>
+                ) : (
+                    <Link className="Nav-menu right-menu" to="/SignIn">
+                        SIGN IN
+                    </Link>
+                )}
             </div>
         </nav>
     );
