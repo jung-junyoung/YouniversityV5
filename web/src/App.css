@@ -147,28 +147,30 @@ footer {
 .SearchBar {
   display: flex;
   align-items: center;
-  width: 400px;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #ffffff;
+  justify-content: center;
+  width: 100%; 
+  max-width: 800px; 
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 16px;
 }
 
 .SearchInput {
   flex: 1;
+  min-width: 0;
   padding: 0.8rem 1rem;
   font-size: 16px;
-  border: none;
+  border: 1px solid #dcdcdc;
   outline: none;
 }
 
 .SearchButton {
   background-color: #5C76F7;
   color: white;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  cursor: pointer;
+  border : none;
+  padding: 0.8rem 1.5rem;
   font-size: 18px;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
@@ -184,7 +186,11 @@ footer {
 
 .Report-content {
   flex: 1;
-  padding: 3rem 4rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 4rem;
+  box-sizing: border-box;
 }
 
 /* Main CSS */

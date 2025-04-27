@@ -15,7 +15,6 @@ const Report = () => {
       <div className="Report-content">
         <SearchBar onSearch={handleSearch} />
         {/* 여기에 Location, Type 체크박스나 테이블이 이어질 예정 */}
-        <img src={kyle} style={{ width: '1000px', height: 'auto' }}/>
       </div>
     </div>
   );
