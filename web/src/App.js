@@ -1,28 +1,37 @@
 import './App.css';
-import kyle from './assets/kyle.webp';
 import Nav from './component/Nav';
 import Report from './component/Report';
 import MyPage from './component/MyPage';
 import Footer from './component/Footer';
 import SignIn from './component/SignIn';
+import ProtectedRoute from './component/ProtectedRoute';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <BrowserRouter>
       <div className="App">
         <main>
-          <Nav />
+          <Nav isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
             <Routes>
-              <Route path='/' element={<Report />} />
-              <Route path='/MyPage' element={<MyPage />} />
-              <Route path='/SignIn' element={<SignIn /> } />
+              <Route path='/' element={<SignIn onLogin={() => setIsLoggedIn(true)} />} />
+              <Route path='/Report' element={
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <Report />
+                  </ProtectedRoute>
+              } />
+              <Route path='/MyPage' element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <MyPage />
+                </ProtectedRoute>
+              } />
             </Routes>
-        </main>
-
-        <footer>
+            
           <Footer />
-        </footer>
+        </main>
       </div>
     </BrowserRouter>
   );

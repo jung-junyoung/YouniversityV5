@@ -1,13 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/NavLogo.svg';
 
-function Nav() {
+function Nav({ isLoggedIn, onLogout }) {
     const [isHidden, setIsHidden] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
-
-    // 로그인 상태 (임시)
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -19,7 +16,14 @@ function Nav() {
         }
       
         setLastScrollY(currentScrollY);
-      };
+    };
+
+    const navigate = useNavigate();
+
+    const handleLogoutClick = () => {
+        onLogout();        
+        navigate('/');     
+    };
       
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -27,14 +31,10 @@ function Nav() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-    const handleLogout = () => {
-        setIsLoggedIn(false);
-    };
-
     return (
         <nav className={`Nav-bar ${isHidden ? 'Nav-hidden' : ''}`}>
             <div className="Nav-section left">
-                <Link className='Nav-menu' to={'/'}>REPORT</Link>
+                <Link className='Nav-menu' to={'/Report'}>REPORT</Link>
                 <Link className='Nav-menu' to={'/MyPage'}>MY PAGE</Link>
             </div>
 
@@ -44,11 +44,11 @@ function Nav() {
 
             <div className="Nav-section right">
                 {isLoggedIn ? (
-                    <button className="Nav-button right-menu" onClick={handleLogout}>
+                    <button className="Nav-button right-menu" onClick={handleLogoutClick}>
                         SIGN OUT
                     </button>
                 ) : (
-                    <Link className="Nav-menu right-menu" to="/SignIn">
+                    <Link className="Nav-menu right-menu" to="/">
                         SIGN IN
                     </Link>
                 )}
