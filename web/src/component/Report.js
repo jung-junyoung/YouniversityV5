@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SideNav from './SideNav';
 import SearchBar from './SearchBar';
 import AdvancedSearch from './AdvancedSearch';
+import ReportList from "./ReportList";
 
 const Report = () => {
   const [filters, setFilters] = useState([]);
@@ -48,7 +49,7 @@ const Report = () => {
             />
           )}
           
-        {/* 여기에 Location, Type 체크박스나 테이블이 이어질 예정 */}
+        <ReportList />
       </div>
     </div>
   );

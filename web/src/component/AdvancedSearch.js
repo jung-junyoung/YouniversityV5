@@ -23,7 +23,7 @@ function AdvancedSearch({ selectedFilters, toggleFilter, handleReset, handleAppl
         </div>
 
         <div className="filter-group">
-          <h4>Type</h4>
+          <h4>Category</h4>
           <div className="filter-options">
             {types.map((type) => (
               <button

@@ -27,9 +27,8 @@ function Nav({ isLoggedIn, onLogout }) {
       
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY]);
+      }, []);
 
     return (
         <nav className={`Nav-bar ${isHidden ? 'Nav-hidden' : ''}`}>

@@ -207,7 +207,7 @@ footer {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   gap: 16px;
 }
@@ -395,5 +395,32 @@ footer {
 .SignUp-link {
   color: gray;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ReprotList CSS */
+.ReportList-container {
+  margin: 2rem auto 0 auto;
+  padding: 2rem;
+  max-width: 960px;
+  font-family: 'Pretendard', sans-serif;
+  overflow-x: auto;
+}
+
+.ReportList-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.ReportList-table th,
+.ReportList-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.ReportList-row:hover {
+  background-color: #f7f7f7;
   cursor: pointer;
 }
