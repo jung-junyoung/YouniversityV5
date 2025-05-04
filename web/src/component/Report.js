@@ -30,8 +30,9 @@ const Report = () => {
     setSelectedFilters([]);
   };
 
-  const handleApply = () => {
-    console.log('Applied filters:', selectedFilters);
+  const handleApply = ({ filters }) => {
+    console.log('Applied Filters:', filters);
+    setSelectedFilters(filters);
     setShowAdvanced(false);
   };
 

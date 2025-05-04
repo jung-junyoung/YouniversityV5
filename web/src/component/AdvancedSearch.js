@@ -1,27 +1,12 @@
 import React, { useState } from 'react';
 
 function AdvancedSearch({ selectedFilters, toggleFilter, handleReset, handleApply }) {
-  const locations = ['Main Entrance', 'Engineering Hall', 'Library', 'Science Hall', 'Fountain'];
   const types = ['Sidewalk block', 'Streetlamp', 'Wall'];
+  const statuses = ['New', 'In-Progress', 'Complete'];
 
   return (
     <div className="AdvancedSearch">
       <div className="filters">
-        <div className="filter-group">
-          <h4>Location</h4>
-          <div className="filter-options">
-            {locations.map((location) => (
-              <button
-                key={location}
-                className={`filter-option ${selectedFilters.includes(location) ? 'selected' : ''}`}
-                onClick={() => toggleFilter(location)}
-              >
-                {location}
-              </button>
-            ))}
-          </div>
-        </div>
-
         <div className="filter-group">
           <h4>Category</h4>
           <div className="filter-options">
@@ -35,6 +20,22 @@ function AdvancedSearch({ selectedFilters, toggleFilter, handleReset, handleAppl
               </button>
             ))}
           </div>
+
+          <div className="filter-group">
+            <h4>Status</h4>
+            <div className="filter-options">
+              {statuses.map((status) => (
+                <button
+                  key={status}
+                  className={`filter-option ${selectedFilters.includes(status) ? 'selected' : ''}`}
+                  onClick={() => toggleFilter(status)}
+                >
+                  {status}
+                </button>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         <div className="selected-tags">
@@ -48,7 +49,7 @@ function AdvancedSearch({ selectedFilters, toggleFilter, handleReset, handleAppl
 
         <div className="action-buttons">
           <button className="reset-button" onClick={handleReset}>Reset</button>
-          <button className="apply-button" onClick={handleApply}>Apply</button>
+          <button className="apply-button" onClick={() => handleApply({ filters: selectedFilters })}>Apply</button>
         </div>
       </div>
     </div>
