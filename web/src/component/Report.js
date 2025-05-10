@@ -38,7 +38,6 @@ const Report = () => {
 
   return (
     <div className="Report-page">
-      <SideNav />
       <div className="Report-content">
         <SearchBar onSearch={handleSearch} onToggleAdvanced={toggleAdvancedSearch} />
           {showAdvanced && (
