@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../Firebase';
+import { useNavigate } from 'react-router-dom';
 
 function ReportList() {
   const [reports, setReports] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchReports = async () => {
@@ -40,7 +42,7 @@ function ReportList() {
   }, []);
 
   useEffect(() => {
-    console.log("Fetched reports:", reports); // 이걸 ReportList.js에서 추가
+    console.log("Fetched reports:", reports);
   }, [reports]);
 
   return (
@@ -59,10 +61,7 @@ function ReportList() {
             <tr
               key={report.id}
               className="ReportList-row"
-              onClick={() => {
-                console.log(`Clicked report ID: ${report.id}`);
-                // 👉 추후 상세 페이지 이동 시 연결
-              }}
+              onClick={() => navigate(`/report/${report.id}`)}
             >
               <td>{report.no}</td>
               <td>{report.category}</td>
