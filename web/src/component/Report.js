@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SideNav from './SideNav';
 import SearchBar from './SearchBar';
 import AdvancedSearch from './AdvancedSearch';
 import ReportList from "./ReportList";
@@ -8,10 +7,11 @@ const Report = () => {
   const [filters, setFilters] = useState([]);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = (query) => {
     console.log('검색어:', query);
-    // 나중에 검색 로직 연결 가능 (ex: API 요청 or 필터링)
+    setSearchQuery(query.toLowerCase());
   };
 
   const toggleAdvancedSearch = () => {
@@ -37,19 +37,25 @@ const Report = () => {
   };
 
   return (
-    <div className="Report-page">
+    <div className={`Report-page ${showAdvanced ? 'with-filter' : ''}`}>
+      {showAdvanced && (
+        <div className="Filter-panel">
+          <AdvancedSearch
+            selectedFilters={selectedFilters}
+            toggleFilter={toggleFilter}
+            handleReset={handleReset}
+            handleApply={handleApply}
+          />
+        </div>
+      )}
+
       <div className="Report-content">
-        <SearchBar onSearch={handleSearch} onToggleAdvanced={toggleAdvancedSearch} />
-          {showAdvanced && (
-            <AdvancedSearch
-              selectedFilters={selectedFilters}
-              toggleFilter={toggleFilter}
-              handleReset={handleReset}
-              handleApply={handleApply}
-            />
-          )}
-          
-        <ReportList />
+        <SearchBar 
+          searchQuery={searchQuery} 
+          setSearchQuery={setSearchQuery} 
+          onSearch={handleSearch}
+          onToggleAdvanced={toggleAdvancedSearch}/>
+        <ReportList selectedFilters={selectedFilters} searchQuery={searchQuery}/>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import apple from '../assets/apple.jpg';
 const MyPage = () => {
   return (
     <div>
-      <img src={apple} style={{ width: '1000px', height: 'auto' }}/>
+      <h1> My Page </h1>
     </div>
   );
 };
